@@ -3,7 +3,6 @@ import pandas as pd
 
 def get_short_rate_data(ticker='^IRX', start='2015-01-01', end='2024-12-31'):
     data = yf.download(ticker, start=start, end=end)
-    # Use 'Close' if 'Adj Close' is not present
     if 'Adj Close' in data.columns:
         data = data['Adj Close'] / 100
     elif 'Close' in data.columns:
